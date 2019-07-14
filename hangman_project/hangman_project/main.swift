@@ -45,9 +45,12 @@ func hangMan() {
     var guessWord = [String](repeating: "_", count: amountOfGuesses)
     
     var wrongGuesses = [String]()
-    let bodyParts = [" O ","""
-                        O
-                        |
+    
+    let bodyParts = ["""
+                     O
+                    ""","""
+                     O
+                     |
                     ""","""
                      O
                     -|
@@ -73,6 +76,10 @@ func hangMan() {
     
     print("Enter a letter:")
     
+    /*
+     While code from https://www.journaldev.com/19612/swift-readline-swift-print
+     Reading Multiple Inputs section
+     */
     while let input = readLine() {
         guard input != "quit" else {
             break
