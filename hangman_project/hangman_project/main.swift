@@ -35,7 +35,6 @@ func hangMan() {
     print("")
     var wordArrayed = [String]()
     
-    
     if let randomWord = allTheWords.randomElement() {
         wordArrayed = randomWord.map({String($0)})
     }
@@ -58,7 +57,11 @@ func hangMan() {
     print("Enter a letter:")
     
     while let input = readLine() {
-        guard input != "quit" || guessCounter == amountOfGuesses else {
+        guard input != "quit" else {
+            break
+        }
+        guard guessCounter != amountOfGuesses else {
+            print("H A N G M A N !")
             break
         }
         
