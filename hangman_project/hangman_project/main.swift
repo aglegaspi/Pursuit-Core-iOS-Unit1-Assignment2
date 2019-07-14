@@ -40,12 +40,29 @@ func hangMan() {
     }
     print(wordArrayed)
     
-    let amountOfGuesses = 6
+    let amountOfGuesses = 5
     
     var guessWord = [String](repeating: "_", count: amountOfGuesses)
     
     var wrongGuesses = [String]()
-    let bodyParts = ["O","|","-","-","/","\\"]
+    let bodyParts = [" O ","""
+                        O
+                        |
+                    ""","""
+                     O
+                    -|
+                    ""","""
+                     O
+                    -|-
+                    ""","""
+                     O
+                    -|-
+                    /
+                    ""","""
+                     O
+                    -|-
+                    / \\
+                    """]
     
     var hangMan = """
     """
@@ -61,11 +78,17 @@ func hangMan() {
             break
         }
         guard guessCounter != amountOfGuesses else {
+            hangMan = """
+            """
+            hangMan.append(bodyParts[guessCounter])
+            print(hangMan)
             print("H A N G M A N !")
             break
         }
         
         if !wordArrayed.contains(input) {
+            hangMan = """
+            """
             wrongGuesses.append(input)
             print("Sorry '\(input.uppercased())' is incorrect. Try again.")
             hangMan.append(bodyParts[guessCounter])
