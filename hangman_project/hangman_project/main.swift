@@ -34,8 +34,10 @@ func hangMan() {
     print("Let's play H A N G M A N !")
     print("")
     var wordArrayed = [String]()
+    var chosenWord = ""
     
     if let randomWord = allTheWords.randomElement() {
+        chosenWord = randomWord
         wordArrayed = randomWord.map({String($0)})
     }
     print(wordArrayed)
@@ -81,21 +83,22 @@ func hangMan() {
      Reading Multiple Inputs section
      */
     while let input = readLine() {
+        hangMan = """
+        """
+        
         guard input != "quit" else {
             break
         }
         guard guessCounter != amountOfGuesses else {
-            hangMan = """
-            """
+            
             hangMan.append(bodyParts[guessCounter])
             print(hangMan)
-            print("H A N G M A N !")
+            print("H A N G M A N ! The correct word was '\(chosenWord)'")
             break
         }
         
         if !wordArrayed.contains(input) {
-            hangMan = """
-            """
+    
             wrongGuesses.append(input)
             print("Sorry '\(input.uppercased())' is incorrect. Try again.")
             hangMan.append(bodyParts[guessCounter])
