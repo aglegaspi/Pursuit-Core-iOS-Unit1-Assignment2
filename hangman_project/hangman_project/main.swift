@@ -84,6 +84,10 @@ func hangMan() {
             break
         }
         
+        if guessWord.contains(input) {
+            print("That letter already exists. Try again!")
+            continue
+        }
         
         if !wordArrayed.contains(input) {
     
@@ -99,6 +103,7 @@ func hangMan() {
             print(wrongGuesses)
             
         } else {
+            
             print("Yes! \"\(input.uppercased())\" is in the word")
             for (index, letter) in wordArrayed.enumerated() {
                 
