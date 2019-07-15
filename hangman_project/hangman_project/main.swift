@@ -80,19 +80,19 @@ func hangMan() {
             hangMan.append(bodyParts[guessCounter])
             print(hangMan)
             print("")
-            print("H A N G M A N ! The correct word was '\(wordArrayed.joined())'")
+            print("☠️ H A N G M A N ! The correct word was '\(wordArrayed.joined())'")
             break
         }
         
         if guessWord.contains(input) || wrongGuesses.contains(input) {
-            print("You already used \(input.uppercased()). Try again!")
+            print("🛑 You already used \(input.uppercased()). Try again!")
             continue
         }
         
         if !wordArrayed.contains(input) {
     
             wrongGuesses.append(input)
-            print("Sorry '\(input.uppercased())' is incorrect. Try again.")
+            print("🥴 Sorry '\(input.uppercased())' is incorrect. Try again.")
             hangMan.append(bodyParts[guessCounter])
             
             guessCounter += 1
@@ -119,7 +119,7 @@ func hangMan() {
         }
         
         guard correctCounter != wordArrayed.count else {
-            print("You Won! ")
+            print("🥳 You Won!")
             break
         }
         
