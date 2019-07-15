@@ -73,6 +73,7 @@ func hangMan() {
     """
     var guessCounter = 0
     
+    
     print("")
     
     
@@ -83,6 +84,7 @@ func hangMan() {
      Reading Multiple Inputs section
      */
     while let input = readLine() {
+        var guessCountdown = amountOfGuesses - guessCounter
         hangMan = """
         """
         
@@ -93,6 +95,7 @@ func hangMan() {
             
             hangMan.append(bodyParts[guessCounter])
             print(hangMan)
+            print("")
             print("H A N G M A N ! The correct word was '\(chosenWord)'")
             break
         }
@@ -103,7 +106,9 @@ func hangMan() {
             print("Sorry '\(input.uppercased())' is incorrect. Try again.")
             hangMan.append(bodyParts[guessCounter])
             guessCounter += 1
+            print("You have \(guessCountdown) guess(es) left.")
             print(hangMan)
+            print(wrongGuesses)
             
         } else {
             print("Yes! \"\(input.uppercased())\" is in the word")
@@ -111,7 +116,7 @@ func hangMan() {
             print(guessWord)
         }
         
-        print(wrongGuesses)
+        
         print()
         
         print("Enter a letter:")
