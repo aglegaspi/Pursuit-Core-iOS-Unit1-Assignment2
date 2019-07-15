@@ -84,8 +84,8 @@ func hangMan() {
             break
         }
         
-        if guessWord.contains(input) {
-            print("That letter already exists. Try again!")
+        if guessWord.contains(input) || wrongGuesses.contains(input) {
+            print("You already used \(input.uppercased()). Try again!")
             continue
         }
         
