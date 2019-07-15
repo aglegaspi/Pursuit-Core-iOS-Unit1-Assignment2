@@ -45,7 +45,7 @@ func hangMan() {
     
     let amountOfGuesses = 5
     
-    var guessWord = [String](repeating: "_", count: amountOfGuesses)
+    var guessWord = [String](repeating: "_", count: wordArrayed.count)
     
     var wrongGuesses = [String]()
     
@@ -83,11 +83,11 @@ func hangMan() {
     
     var hangMan = """
     """
-    var guessCounter = 0
     
+    var guessCounter = 0
+    var correctCounter = 0
     
     print("")
-
     print("Enter a letter:")
     
     /*
@@ -102,6 +102,7 @@ func hangMan() {
         guard input != "quit" else {
             break
         }
+        
         guard guessCounter != amountOfGuesses else {
             
             hangMan.append(bodyParts[guessCounter])
@@ -112,10 +113,7 @@ func hangMan() {
             
             break
         }
-        guard guessWord.contains("_") else {
-            print("You Won!")
-            break
-        }
+        
         
         if !wordArrayed.contains(input) {
     
@@ -125,25 +123,29 @@ func hangMan() {
             
             guessCounter += 1
             print("You have \(guessCountdown) guess(es) left.")
+            print("")
             print(hangMan)
+            print("")
             print(wrongGuesses)
             
         } else {
             print("Yes! \"\(input.uppercased())\" is in the word")
-            let currentLetter = input
             
             for (index, letter) in wordArrayed.enumerated() {
                 
-                if currentLetter == letter {
-                    guessWord[index] = currentLetter
+                if input == letter {
+                    guessWord[index] = input
                 }
             }
-            //guessWord.append(currentLetter)
             
-        
+            correctCounter += 1
             print(guessWord)
         }
         
+        guard correctCounter != wordArrayed.count else {
+            print("You Won!")
+            break
+        }
         
         print()
         
