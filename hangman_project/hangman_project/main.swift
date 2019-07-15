@@ -131,10 +131,16 @@ func hangMan() {
         } else {
             print("Yes! \"\(input.uppercased())\" is in the word")
             let currentLetter = input
-            guessWord.append(currentLetter)
             
+            for (index, letter) in wordArrayed.enumerated() {
+                
+                if currentLetter == letter {
+                    guessWord[index] = currentLetter
+                }
+            }
+            //guessWord.append(currentLetter)
             
-            
+        
             print(guessWord)
         }
         
