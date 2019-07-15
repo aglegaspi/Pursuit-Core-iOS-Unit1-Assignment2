@@ -33,6 +33,7 @@ let allTheWords = ["able", "about", "account", "acid", "across", "addition", "ad
 func hangMan() {
     print("Let's play H A N G M A N !")
     print("")
+    
     var wordArrayed = [String]()
     var chosenWord = ""
     
@@ -75,12 +76,11 @@ func hangMan() {
     
     
     print("")
-    
-    
+
     print("Enter a letter:")
     
     /*
-     While code from https://www.journaldev.com/19612/swift-readline-swift-print
+     While Loop code from https://www.journaldev.com/19612/swift-readline-swift-print
      Reading Multiple Inputs section
      */
     while let input = readLine() {
@@ -94,9 +94,15 @@ func hangMan() {
         guard guessCounter != amountOfGuesses else {
             
             hangMan.append(bodyParts[guessCounter])
+            
             print(hangMan)
             print("")
             print("H A N G M A N ! The correct word was '\(chosenWord)'")
+            
+            break
+        }
+        guard guessWord.contains("_") else {
+            print("You Won!")
             break
         }
         
@@ -105,6 +111,7 @@ func hangMan() {
             wrongGuesses.append(input)
             print("Sorry '\(input.uppercased())' is incorrect. Try again.")
             hangMan.append(bodyParts[guessCounter])
+            
             guessCounter += 1
             print("You have \(guessCountdown) guess(es) left.")
             print(hangMan)
@@ -112,7 +119,11 @@ func hangMan() {
             
         } else {
             print("Yes! \"\(input.uppercased())\" is in the word")
-            guessWord.append(input)
+            let currentLetter = input
+            guessWord.append(currentLetter)
+            
+            
+            
             print(guessWord)
         }
         
