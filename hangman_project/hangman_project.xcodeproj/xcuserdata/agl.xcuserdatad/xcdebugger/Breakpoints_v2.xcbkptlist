@@ -10,27 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "hangman_project/main.swift"
-            timestampString = "584888819.737262"
+            timestampString = "584890931.865582"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
             endingLineNumber = "29"
             landmarkName = "unknown"
             landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "hangman_project/main.swift"
-            timestampString = "584888819.737691"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
